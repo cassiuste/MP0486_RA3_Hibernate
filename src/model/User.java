@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,9 +37,9 @@ public class User {
     @JoinColumn(name = "user_id")
 	private List<Mark> marks;
 	
-	@OneToOne //This specifies that has an aggregation of another class (table)
+	@OneToOne(cascade = CascadeType.ALL) //This specifies that has an aggregation of another class (table)
 	@JoinColumn(name = "mark_average")
-	private Mark markAverage;
+	private MarkAverage markAverage;
 	
 	//Empty constructor is needed
 	public User(){} 
@@ -50,11 +51,20 @@ public class User {
 		this.marks = new ArrayList<>();
 	}
 	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
-	public void setMarkAverage(Mark markAverage) {
+	public void setMarkAverage(MarkAverage markAverage) {
 		this.markAverage = markAverage;
 	}
 	
@@ -62,7 +72,7 @@ public class User {
 		return this.marks;
 	}
 	
-	public Mark getMarkAverage() {
+	public MarkAverage getMarkAverage() {
 		return this.markAverage;
 	}
 

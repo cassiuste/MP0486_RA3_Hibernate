@@ -22,12 +22,39 @@ public class Mark {
 	@Column
 	private String letter;
 	
+	@Column
+	private int user_id;
+	
 	//Empty constructor is needed
 	public Mark(){} 
 	 
 	public Mark(int number, String letter) {
 		this.number = number;
 		this.letter = letter;
+	}
+	
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public String getLetter() {
+		return letter;
+	}
+
+	public void setLetter(String letter) {
+		this.letter = letter;
+	}
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	@Override
